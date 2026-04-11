@@ -2,6 +2,7 @@
 {
     public class Tests
     {
+        // need to fix this probabaly after I make the code to see if thats the issue
         CeasarShift.Cypher cc;
 
 
