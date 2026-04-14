@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CeasarShift
+namespace CeasarShiftTest
 {
-
-
     public class Cypher
     {
+        // I am keeping this here so you can kind of see the thought process I went throught this did not end up working and I had to put it per class I tried to make thing slightly easier
+        // kept getting errors didnt work out
         string input;
         int key;
         StringBuilder result = new StringBuilder();
@@ -24,22 +24,22 @@ namespace CeasarShift
 
             foreach (char shifting in input)
             {
-
+              
                 if (char.IsLetter(shifting))
                 {
                     char offset = char.IsLower(shifting) ? 'a' : 'A';
 
-
+                
                     int shiftedValue = (shifting - offset + optimizedKey) % 26;
 
-
+                   
                     if (shiftedValue < 0) shiftedValue += 26;
 
                     result.Append((char)(shiftedValue + offset));
                 }
                 else
                 {
-
+                   
                     result.Append(shifting);
                 }
             }
@@ -51,8 +51,8 @@ namespace CeasarShift
         {
             StringBuilder result = new StringBuilder();
 
-  
-            int optimizedKey = key % -26;
+           
+            int keys = key % -26;
 
             foreach (char shifting in input)
             {
@@ -60,10 +60,10 @@ namespace CeasarShift
                 {
                     char offset = char.IsLower(shifting) ? 'a' : 'A';
 
-                 
-                    int shiftedValue = (shifting - offset + optimizedKey) % -26;
 
-             
+                    int shiftedValue = (shifting - offset + keys) % -26;
+
+                  
                     if (shiftedValue < 0)
                     {
                         shiftedValue += -26;
@@ -75,12 +75,12 @@ namespace CeasarShift
                 {
                     result.Append(shifting);
                 }
-
-
+               
             }
             return result.ToString();
+        }
 
-
+            
         }
     }
-}
+
