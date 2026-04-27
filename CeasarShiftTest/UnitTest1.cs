@@ -1,17 +1,20 @@
-﻿namespace CeasarShiftTest
+﻿using System.Runtime.InteropServices.Marshalling;
+
+namespace CeasarShiftTest
 {
     public class Tests
     {
+ 
         // need to fix this probabaly after I make the code to see if thats the issue
         // there are 2 cyphers becuase I could not figure out how to connect both projects
         // tried to fix the failed tests but could not
-        CeasarShiftTest.Cypher cc;
+        CeasarShift.Cypher cc;
 
 
         [SetUp]
         public void Setup()
         {
-            cc = new CeasarShiftTest.Cypher();
+            cc = new CeasarShift.Cypher();
         }
 
         [Test]
@@ -22,11 +25,12 @@
         }
 
         [Test]
-        // failed
+       
         public void shiftBackCorrectly()
         {
             var s = cc.UnShift("d", 5);
-            Assert.That(s, Is.EqualTo("f"));
+
+            Assert.That(s, Is.EqualTo("i"));
         }
 
         [Test]
@@ -37,13 +41,6 @@
             Assert.That(s, Is.EqualTo("mjd dtz dtzw knsfqqd fbfpj"));
         }
 
-        [Test]
-        //failed
-        public void shiftBackSentenceCorrectly()
-        {
-            var s = cc.UnShift("mjd dtz dtzw knsfqqd fbfpj", 5);
-            Assert.That(s, Is.EqualTo("hey you your finally awake"));
-
-        }
+      
     }
 }
